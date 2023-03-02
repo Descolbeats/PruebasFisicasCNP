@@ -1,0 +1,29 @@
+Comandos terminal:
+
+Arrancar servidor:
+python manage.py runserver
+
+Caracteres españoles en HTML:
+&ntilde;	ñ	latin letter n with tilde
+&Ntilde;	Ñ	latin capital n letter with tilde
+&aacute;	á	a acute
+&eacute;	é	e acute
+&iacute;	í	i acute
+&oacute;	ó	o acute
+&uacute;	ú	u acute
+&Aacute;	Á	A acute
+&Eacute;	É	E acute
+&Iacute;	Í	I acute
+&Oacute;	Ó	O acute
+&Uacute;	Ú	U acute
+&euro;	€	euro
+
+https://htmlcheatsheet.com/css/
+
+332
+
+In a Django template, foo.bar can mean:
+foo[bar]       # dictionary lookup
+foo.bar        # attribute lookup
+foo.bar()      # method call
+foo[bar]       # list-index lookup
