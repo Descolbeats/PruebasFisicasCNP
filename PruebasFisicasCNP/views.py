@@ -13,14 +13,11 @@ class Grade(object):
     arr_grades = [10,20,30,40,50]
     def __init__(self, time):
         self.time = time
-        self.grade = None
+        self.grade = 0
     def get_grade(self):
-        for i in range(Grade.arr_grades):
+        for i in range(len(Grade.arr_grades)):
             if self.time >= Grade.arr_grades[i]:
-                self.grade = i
-
-
-    
+                self.grade = i + 1    
 
 
 def view_home(request):
@@ -29,11 +26,13 @@ def view_home(request):
 
 
 def view_buscar(request):
-    grade1 = Grade()
+    grade1 = Grade(int(request.GET['time1']))
+    grade1.get_grade()
+    result1 = str(grade1.grade)
 
-    mensaje = f"Información enviada: {request.GET['time1']}"
+    # mensaje = f"Información enviada: {request.GET['time1']}"
     resultado = request.GET['time1']
-    return render(request, 'home.html', {"result": resultado})
+    return render(request, 'home.html', {"result": result1})
     # return HttpResponse(mensaje)
 
     # return render(request, 'plantillaHeredadaHija.html', {"nombre_persona": nombre})

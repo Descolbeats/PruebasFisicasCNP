@@ -2,29 +2,36 @@
 <body>
 
 <h2 style="color: red">
-    Hola plantilla!
+    Cálculo nota pruebas física CNP
 </h2>
 
-<!--<form action="/buscar/" method="GET">-->
-<!--    <input type="text" name="nombre">-->
-<!--    <input type="submit" value="Buscar">-->
-<!--</form>-->
+
+<!-- TODO: restringir valores que se pueden enviar:
+      - Solo enteros dentro de un rango
+      - impedir enviar vacio
+   -->   
 
 <form action="/buscar/" method="GET">
+   <input type="text" name="time1">
+
+
+<!-- <form action="/buscar/" method="GET">
       <label for="prueba1">Prueba1</label>
       <select name="time1" id="prueba1">
-        <option value="1min">1 minuto</option>
-        <option value="2min">2 minutos</option>
-        <option value="3min">3 minutos</option>
-      </select>
-<!--      <input type="submit" value="Enviar" />-->
+        <option value="1">1 minuto</option>
+        <option value="5">5 minutos</option>
+        <option value="15">15 minutos</option>
+        <option value="25">25 minutos</option>
+      </select> -->
+
+<!-- <input type="submit" value="Enviar" />-->
 <!--      <br>-->
 <!--      <label for="prueba2">Prueba2</label>-->
 <!--      <select name="time2" id="prueba2">-->
 <!--        <option value="1seg">1 segundo</option>-->
 <!--        <option value="2seg">2 segundos</option>-->
 <!--      </select>-->
-<!--      <br>-->
+<!--      <br> -->
       <input type="submit" value="Enviar" />
 </form>
 
