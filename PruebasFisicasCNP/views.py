@@ -4,7 +4,7 @@ from django.template import Template, Context
 from django.template.loader import get_template
 from django.shortcuts import render
 
-class Coche(object):
+""" class Coche(object):
     def __init__(self, marca, modelo):
         self.marca = marca
         self.modelo = modelo
@@ -17,9 +17,48 @@ class Grade(object):
     def get_grade(self):
         for i in range(len(Grade.arr_grades)):
             if self.time >= Grade.arr_grades[i]:
-                self.grade = i + 1    
+                self.grade = i + 1 """
 
-class Bar(object):
+class Tests():
+    arrBarTimes = [36, 41, 46, 52, 57, 63, 70, 78, 86, 95]
+    arrCircuitTimes = [12.7, 12.5, 12.3, 12, 11.6, 11.2, 10.8, 10.3, 9.8, 9.3]
+    arrRaceTimes = [4 * 60 + 45, 4 * 60 + 36, 4 * 60 + 27,\
+        4 * 60 + 18, 4 * 60 + 9, 4 * 60, 3 * 60 + 51,\
+        3 * 60 + 42, 3 * 60 + 33, 3 * 60 + 24]
+    def __init__(self):
+        self.barTime = None
+        self.circuitTime = None
+        self.raceTime = None
+
+        self.barGrade = None
+        self.circuitGrade = None
+        self.raceGrade = None
+
+        self.totalGrade30 = None
+        self.totalGrade10 = None
+    def set_bar_time(self, time):
+        self.barTime = int(time)
+    def set_circuit_time(self, time):
+        self.circuitTime = int(time)
+    def set_race_time(self, timeMin, timeSec):
+        self.raceTime = int(timeMin) * 60 + int(timeSec)
+    def calc_bar_grade(self):
+        for i in range(len(Tests.arrBarTimes)):
+            if self.barTime >= Tests.arrBarTimes[i]:
+                self.barGrade = i + 1
+    def calc_circuit_grade(self):
+        for i in range(len(Tests.arrCircuitTimes)):
+            if self.circuitTime <= Tests.arrCircuitTimes[i]:
+                self.circuitGrade = i + 1
+    def calc_race_grade(self):
+        for i in range(len(Tests.arrRaceTimes)):
+            if self.raceTime <= Tests.arrRaceTimes[i]:
+                self.raceGrade = i + 1
+    def calc_total_grade(self):
+        self.totalGrade30 = self.barGrade + self.circuitGrade + self.raceGrade
+        self.totalGrade10 = int(self.totalGrade30/3) if self.totalGrade30%3 == 0 else round(self.totalGrade30/3, 1)
+
+""" class Bar():
     arrTimes = [36, 41, 46, 52, 57, 63, 70, 78, 86, 95]
     def __init__(self, testTime):
         self.testTime = int(testTime)
@@ -30,7 +69,7 @@ class Bar(object):
                 self.testGrade = i + 1
         return self.testGrade
 
-class Circuit(object):
+class Circuit():
     arrTimes = [12.7, 12.5, 12.3, 12, 11.6, 11.2, 10.8, 10.3, 9.8, 9.3]
     def __init__(self, testTime):
         self.testTime = int(testTime)
@@ -41,7 +80,7 @@ class Circuit(object):
                 self.testGrade = i + 1
         return self.testGrade
 
-class Race(object):
+class Race():
     arrTimes = [4 * 60 + 45, 4 * 60 + 36, 4 * 60 + 27,\
         4 * 60 + 18, 4 * 60 + 9, 4 * 60, 3 * 60 + 51,\
         3 * 60 + 42, 3 * 60 + 33, 3 * 60 + 24]
@@ -51,35 +90,30 @@ class Race(object):
     def get_grade(self):
         for i in range(len(Race.arrTimes)):
             if self.testTime <= Race.arrTimes[i]:
-                self.testGrade = i + 1
-        return self.testGrade
+                self.testGrade =  i + 1
+        return self.testGrade """
 
 def view_home(request):
-    gradeBar = None
-    gradeCircuit = None
-    gradeRace = None
-    gradeTotal = None
-    return render(request, 'home.html',
-        {"gradeBar":gradeBar, "gradeCircuit":gradeCircuit, "gradeRace":gradeRace, "gradeTotal":gradeTotal})
-
+    tests.set_bar_time(0)
+    tests.set_circuit_time(0)
+    tests.set_race_time(0, 0)
+    return render(request, 'home.html', {"tests":tests})
 
 def view_buscar(request):
-    barInst = Bar(request.GET['timeBar'])
-    gradeBar = barInst.get_grade()
-    circuitInst = Circuit(request.GET['timeCircuit'])
-    gradeCircuit = circuitInst.get_grade()
-    raceInst = Race(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
-    gradeRace = raceInst.get_grade()
-    gradeTotal = round((gradeBar+gradeCircuit+gradeRace)/3, 2)
-    gradeTotal = round((5+5+4)/3, 2)
-
+    tests.set_bar_time(request.GET['timeBar'])
+    tests.set_circuit_time(request.GET['timeCircuit'])
+    tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
+    tests.calc_bar_grade()
+    tests.calc_circuit_grade()
+    tests.calc_race_grade()
+    tests.calc_total_grade()
+    
     # mensaje = f"Información enviada: {request.GET['time1']}"
     # resultado = request.GET['time1']
-    return render(request, 'home.html',
-        {"gradeBar":gradeBar, "gradeCircuit":gradeCircuit, "gradeRace":gradeRace, "gradeTotal":gradeTotal})
+    return render(request, 'home.html', {"tests":tests})
 
     # return HttpResponse(mensaje)
 
     # return render(request, 'plantillaHeredadaHija.html', {"nombre_persona": nombre})
 
-
+tests = Tests()

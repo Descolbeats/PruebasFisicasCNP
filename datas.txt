@@ -1,3 +1,10 @@
+To do:
+    - Restringir valores que se pueden enviar en los inputs:
+        - Solo enteros dentro de un rango
+        - impedir enviar vacio
+        - Convertir ',' en '.'
+    - .gitignore
+
 Comandos terminal:
 
 Arrancar servidor:
