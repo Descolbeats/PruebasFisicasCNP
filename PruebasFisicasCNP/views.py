@@ -30,9 +30,9 @@ class Tests():
         self.circuitTime = None
         self.raceTime = None
 
-        self.barGrade = None
-        self.circuitGrade = None
-        self.raceGrade = None
+        self.barGrade = 0
+        self.circuitGrade = 0
+        self.raceGrade = 0
 
         self.totalGrade30 = None
         self.totalGrade10 = None
@@ -43,14 +43,17 @@ class Tests():
     def set_race_time(self, timeMin, timeSec):
         self.raceTime = int(timeMin) * 60 + int(timeSec)
     def calc_bar_grade(self):
+        self.barGrade = 0
         for i in range(len(Tests.arrBarTimes)):
             if self.barTime >= Tests.arrBarTimes[i]:
                 self.barGrade = i + 1
     def calc_circuit_grade(self):
+        self.circuitGrade = 0
         for i in range(len(Tests.arrCircuitTimes)):
             if self.circuitTime <= Tests.arrCircuitTimes[i]:
                 self.circuitGrade = i + 1
     def calc_race_grade(self):
+        self.raceGrade = 0
         for i in range(len(Tests.arrRaceTimes)):
             if self.raceTime <= Tests.arrRaceTimes[i]:
                 self.raceGrade = i + 1
@@ -94,9 +97,13 @@ class Race():
         return self.testGrade """
 
 def view_home(request):
-    tests.set_bar_time(0)
-    tests.set_circuit_time(0)
-    tests.set_race_time(0, 0)
+    tests.set_bar_time(1)
+    tests.set_circuit_time(1)
+    tests.set_race_time(1, 1)
+    tests.calc_bar_grade()
+    tests.calc_circuit_grade()
+    tests.calc_race_grade()
+    tests.calc_total_grade()
     return render(request, 'home.html', {"tests":tests})
 
 def view_buscar(request):
@@ -107,7 +114,7 @@ def view_buscar(request):
     tests.calc_circuit_grade()
     tests.calc_race_grade()
     tests.calc_total_grade()
-    
+
     # mensaje = f"Información enviada: {request.GET['time1']}"
     # resultado = request.GET['time1']
     return render(request, 'home.html', {"tests":tests})
