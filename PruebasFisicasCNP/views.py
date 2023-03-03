@@ -58,8 +58,9 @@ def view_home(request):
     gradeBar = None
     gradeCircuit = None
     gradeRace = None
+    gradeTotal = None
     return render(request, 'home.html',
-        {"gradeBar":gradeBar, "gradeCircuit":gradeCircuit, "gradeRace":gradeRace})
+        {"gradeBar":gradeBar, "gradeCircuit":gradeCircuit, "gradeRace":gradeRace, "gradeTotal":gradeTotal})
 
 
 def view_buscar(request):
@@ -69,11 +70,13 @@ def view_buscar(request):
     gradeCircuit = circuitInst.get_grade()
     raceInst = Race(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
     gradeRace = raceInst.get_grade()
+    gradeTotal = round((gradeBar+gradeCircuit+gradeRace)/3, 2)
+    gradeTotal = round((5+5+4)/3, 2)
 
     # mensaje = f"Información enviada: {request.GET['time1']}"
     # resultado = request.GET['time1']
     return render(request, 'home.html',
-        {"gradeBar":gradeBar, "gradeCircuit":gradeCircuit, "gradeRace":gradeRace})
+        {"gradeBar":gradeBar, "gradeCircuit":gradeCircuit, "gradeRace":gradeRace, "gradeTotal":gradeTotal})
 
     # return HttpResponse(mensaje)
 

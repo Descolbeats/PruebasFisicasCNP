@@ -5,14 +5,8 @@
     Cálculo nota pruebas física CNP
 </h2>
 
-
-<!-- TODO: restringir valores que se pueden enviar:
-      - Solo enteros dentro de un rango
-      - impedir enviar vacio
-      - Convertir ',' en ''.'
-   -->   
-
 <form action="/buscar/" method="GET">
+
     <label>Tiempo barra (s): </label>
     <input type="text" name="timeBar" value="0"
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
@@ -32,34 +26,15 @@
     <input type="text" name="timeRaceSec" value="0"
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
       onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
-      style="color:#BBB;" />
+      style="color:#BBB;" /><br><br>
 
-
-
-<!-- <form action="/buscar/" method="GET">
-      <label for="prueba1">Prueba1</label>
-      <select name="time1" id="prueba1">
-        <option value="1">1 minuto</option>
-        <option value="5">5 minutos</option>
-        <option value="15">15 minutos</option>
-        <option value="25">25 minutos</option>
-      </select> -->
-
-<!-- <input type="submit" value="Enviar" />-->
-<!--      <br>-->
-<!--      <label for="prueba2">Prueba2</label>-->
-<!--      <select name="time2" id="prueba2">-->
-<!--        <option value="1seg">1 segundo</option>-->
-<!--        <option value="2seg">2 segundos</option>-->
-<!--      </select>-->
-<!--      <br> -->
       <input type="submit" value="Enviar" />
 </form>
 
-<p>Nota Barra: {{gradeBar}}.</p>
-<p>Nota Circuito: {{gradeCircuit}}.</p>
-<p>Nota Carrera: {{gradeRace}}.</p>
-<!-- <p>Nota Total: {{gradeBar}}.</p> -->
+<p>Nota Barra: {{gradeBar}}/10.</p>
+<p>Nota Circuito: {{gradeCircuit}}/10.</p>
+<p>Nota Carrera: {{gradeRace}}/10.</p>
+<p>Nota Final: {{gradeTotal}}/30.</p>
 
 </body>
 </html>
