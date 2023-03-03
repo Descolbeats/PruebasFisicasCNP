@@ -9,17 +9,31 @@
 <!-- TODO: restringir valores que se pueden enviar:
       - Solo enteros dentro de un rango
       - impedir enviar vacio
+      - Convertir ',' en ''.'
    -->   
 
 <form action="/buscar/" method="GET">
     <label>Tiempo barra (s): </label>
-    <input type="text" name="timeBar"><br>
+    <input type="text" name="timeBar" value="0"
+      onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
+      onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
+      style="color:#BBB;" /><br><br>
     <label>Tiempo circuito (s): </label>
-    <input type="text" name="timeCircuit"><br>
+    <input type="text" name="timeCircuit" value="0"
+      onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
+      onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
+      style="color:#BBB;" /><br><br>
     <label>Tiempo carrera (min): </label>
-    <input type="text" name="timeRaceMin">
+    <input type="text" name="timeRaceMin" value="0"
+      onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
+      onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
+      style="color:#BBB;" />
     <label>Tiempo carrera (s): </label>
-    <input type="text" name="timeRaceSec">
+    <input type="text" name="timeRaceSec" value="0"
+      onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
+      onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
+      style="color:#BBB;" />
+
 
 
 <!-- <form action="/buscar/" method="GET">
