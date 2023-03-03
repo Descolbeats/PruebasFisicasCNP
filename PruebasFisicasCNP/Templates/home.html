@@ -12,7 +12,14 @@
    -->   
 
 <form action="/buscar/" method="GET">
-   <input type="text" name="time1">
+    <label>Tiempo barra (s): </label>
+    <input type="text" name="timeBar"><br>
+    <label>Tiempo circuito (s): </label>
+    <input type="text" name="timeCircuit"><br>
+    <label>Tiempo carrera (min): </label>
+    <input type="text" name="timeRaceMin">
+    <label>Tiempo carrera (s): </label>
+    <input type="text" name="timeRaceSec">
 
 
 <!-- <form action="/buscar/" method="GET">
@@ -35,7 +42,10 @@
       <input type="submit" value="Enviar" />
 </form>
 
-<p>Resultado: {{result}}.</p>
+<p>Nota Barra: {{gradeBar}}.</p>
+<p>Nota Circuito: {{gradeCircuit}}.</p>
+<p>Nota Carrera: {{gradeRace}}.</p>
+<!-- <p>Nota Total: {{gradeBar}}.</p> -->
 
 </body>
 </html>
