@@ -4,6 +4,8 @@ To do:
         - impedir enviar vacio
         - Convertir ',' en '.'
     - .gitignore
+    - Cambiar contenido tabla por strings para que esté vacía inicialmente
+    - Poner bonito
 
 Comandos terminal:
 
