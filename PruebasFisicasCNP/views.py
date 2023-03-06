@@ -26,9 +26,19 @@ class Tests():
         4 * 60 + 18, 4 * 60 + 9, 4 * 60, 3 * 60 + 51,\
         3 * 60 + 42, 3 * 60 + 33, 3 * 60 + 24]
     def __init__(self):
-        self.barTime = None
-        self.circuitTime = None
-        self.raceTime = None
+        """ self.arrBarTimes = [36, 41, 46, 52, 57, 63, 70, 78, 86, 95]
+        self.arrCircuitTimes = [12.7, 12.5, 12.3, 12, 11.6, 11.2, 10.8, 10.3, 9.8, 9.3]
+        self.arrRaceTimes = [4 * 60 + 45, 4 * 60 + 36, 4 * 60 + 27,\
+        4 * 60 + 18, 4 * 60 + 9, 4 * 60, 3 * 60 + 51,\
+        3 * 60 + 42, 3 * 60 + 33, 3 * 60 + 24] """
+
+        self.barTime = 0
+        self.circuitTime = 0
+        self.raceTime = 0
+
+        self.barInterval = "[0 - 35]"
+        self.circuitInterval = None
+        self.raceInterval = None
 
         self.barGrade = 0
         self.circuitGrade = 0
@@ -60,6 +70,16 @@ class Tests():
     def calc_total_grade(self):
         self.totalGrade30 = self.barGrade + self.circuitGrade + self.raceGrade
         self.totalGrade10 = int(self.totalGrade30/3) if self.totalGrade30%3 == 0 else round(self.totalGrade30/3, 1)
+    
+    def calc_bar_interval(self):
+        if not self.barGrade:
+            self.barInterval = f"[0 - {Tests.arrBarTimes[0]}]"
+        elif self.barGrade != 10:
+            self.barInterval = f"[{Tests.arrBarTimes[self.barGrade]} - {Tests.arrBarTimes[self.barGrade+1]-1}]"
+        else:
+            self.barInterval = f"> {Tests.arrBarTimes[9]}"
+
+            
 
 """ class Bar():
     arrTimes = [36, 41, 46, 52, 57, 63, 70, 78, 86, 95]
@@ -96,17 +116,29 @@ class Race():
                 self.testGrade =  i + 1
         return self.testGrade """
 
-def view_home(request):
-    tests.set_bar_time(1)
-    tests.set_circuit_time(1)
-    tests.set_race_time(1, 1)
-    tests.calc_bar_grade()
-    tests.calc_circuit_grade()
-    tests.calc_race_grade()
-    tests.calc_total_grade()
+def view_home(request):    
+    if request.method != "POST":
+        global tests
+        tests = Tests()
+        """ tests.set_bar_time(0)
+        tests.set_circuit_time(0)
+        tests.set_race_time(0, 0) """
+        tests.calc_bar_grade()
+        tests.calc_circuit_grade()
+        tests.calc_race_grade()
+        tests.calc_total_grade()
+    else:
+        tests.set_bar_time(request.POST['timeBar'])
+        tests.set_circuit_time(request.POST['timeCircuit'])
+        tests.set_race_time(request.POST['timeRaceMin'], request.POST['timeRaceSec'])
+        tests.calc_bar_grade()
+        tests.calc_circuit_grade()
+        tests.calc_race_grade()
+        tests.calc_total_grade()
+        tests.calc_bar_interval()
     return render(request, 'home.html', {"tests":tests})
 
-def view_buscar(request):
+""" def view_buscar(request):
     tests.set_bar_time(request.GET['timeBar'])
     tests.set_circuit_time(request.GET['timeCircuit'])
     tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
@@ -122,5 +154,4 @@ def view_buscar(request):
     # return HttpResponse(mensaje)
 
     # return render(request, 'plantillaHeredadaHija.html', {"nombre_persona": nombre})
-
-tests = Tests()
+ """

@@ -5,7 +5,7 @@
     Cálculo nota pruebas física CNP
 </h2>
 
-<form action="/buscar/" method="GET">
+<form action="/home/" method="POST"> {% csrf_token %}
 
     <label>Tiempo barra (s): </label>
     <input type="text" name="timeBar" value="0"
@@ -35,6 +35,41 @@
 <p>Nota Circuito: {{tests.circuitGrade}}/10.</p>
 <p>Nota Carrera: {{tests.raceGrade}}/10.</p>
 <p>Nota Final: {{tests.totalGrade30}}/30 ({{tests.totalGrade10}}/10).</p>
+
+
+<table class="default">
+  <caption>Título</caption>
+  <tr>
+    <th scope="col">Prueba</th>
+    <th>Tiempo</th>
+    <th>Intervalo</th>
+    <th>Nota</th>
+  </tr>
+  <tr>
+    <th>Barra</th>
+    <td>{{tests.barTime}}''</td>
+    <td>{{tests.barInterval}}</td>
+    <td>{{tests.barGrade}}/10</td>
+  </tr>
+  <tr>
+    <th>Circuito</th>
+    <td>xx</td>
+    <td>xx</td>
+    <td>{{tests.circuitGrade}}/10</td>
+  </tr>
+  <tr>
+    <th>Carrera</th>
+    <td>xx</td>
+    <td>xx</td>
+    <td>{{tests.raceGrade}}/10</td>
+  </tr>
+  <tr>
+    <th>Total</th>
+    <td>xx</td>
+    <td>xx</td>
+    <td>{{tests.totalGrade30}}/30 ({{tests.totalGrade10}}/10)</td>
+  </tr>
+</table>
 
 </body>
 </html>
