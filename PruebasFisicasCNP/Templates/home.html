@@ -17,12 +17,12 @@
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
       onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
       style="color:#BBB;" /><br><br>
-    <label>Tiempo carrera (min): </label>
+    <label>Tiempo carrera (min:seg): </label>
     <input type="text" name="timeRaceMin" value="0"
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
       onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
       style="color:#BBB;" />
-    <label>Tiempo carrera (s): </label>
+    <label>:</label>
     <input type="text" name="timeRaceSec" value="0"
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
       onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
@@ -31,14 +31,8 @@
       <input type="submit" value="Enviar" />
 </form>
 
-<p>Nota Barra: {{tests.barGrade}}/10.</p>
-<p>Nota Circuito: {{tests.circuitGrade}}/10.</p>
-<p>Nota Carrera: {{tests.raceGrade}}/10.</p>
-<p>Nota Final: {{tests.totalGrade30}}/30 ({{tests.totalGrade10}}/10).</p>
-
-
 <table class="default">
-  <caption>Título</caption>
+  <caption>Resultados</caption>
   <tr>
     <th scope="col">Prueba</th>
     <th>Tiempo</th>
@@ -46,28 +40,28 @@
     <th>Nota</th>
   </tr>
   <tr>
-    <th>Barra</th>
-    <td>{{tests.barTime}} seg</td>
+    <th>Barra (seg)</th>
+    <td>{{tests.barTime}}</td>
     <td>{{tests.barInterval}}</td>
-    <td>{{tests.barGrade}}/10</td>
+    <td>{{tests.strBarGrade}}</td>
   </tr>
   <tr>
-    <th>Circuito</th>
-    <td>{{tests.circuitTime}} seg</td>
+    <th>Circuito (seg)</th>
+    <td>{{tests.circuitTime}}</td>
     <td>{{tests.circuitInterval}}</td>
-    <td>{{tests.circuitGrade}}/10</td>
+    <td>{{tests.strCircuitGrade}}</td>
   </tr>
   <tr>
-    <th>Carrera</th>
+    <th>Carrera (min:seg)</th>
     <td>{{tests.strRaceTime}}</td>
     <td>{{tests.raceInterval}}</td>
-    <td>{{tests.raceGrade}}/10</td>
+    <td>{{tests.strRaceGrade}}</td>
   </tr>
   <tr>
     <th>Total</th>
     <td></td>
     <td></td>
-    <td>{{tests.totalGrade30}}/30 ({{tests.totalGrade10}}/10)</td>
+    <td>{{tests.strTotalGrade}}</td>
   </tr>
 </table>
 
