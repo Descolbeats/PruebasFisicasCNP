@@ -27,6 +27,8 @@ class Tests():
         3 * 60 + 42, 3 * 60 + 33, 3 * 60 + 24]
     def __init__(self):
 
+        self.aux = "0000"
+
         # Times
         self.barTime = "-"
         self.circuitTime = "-"

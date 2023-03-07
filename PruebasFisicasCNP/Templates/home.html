@@ -7,12 +7,12 @@
 
 <form action="/home/" method="POST"> {% csrf_token %}
 
-    <label>Tiempo barra (s): </label>
+    <label>Tiempo barra (seg): </label>
     <input type="text" name="timeBar" value="0"
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
       onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
       style="color:#BBB;" /><br><br>
-    <label>Tiempo circuito (s): </label>
+    <label>Tiempo circuito (seg): </label>
     <input type="text" name="timeCircuit" value="0"
       onblur="if(this.value==''){ this.value='0'; this.style.color='#BBB';}"
       onfocus="if(this.value=='0'){ this.value=''; this.style.color='#000';}"
