@@ -14,10 +14,10 @@
         <p class="mb-3">Texto.
         </p>
 
-        <form>
+        <form action="/calcNota/" method="POST"> {% csrf_token %}
           <div class="input-group mb-3">
             <span class="col-3 input-group-text text-center" id="basic-addon1">Barra</span>
-            <input type="text" class="form-control" placeholder="0">
+            <input type="text" name="timeBar" class="form-control" placeholder="0">
             <span class="col-3 input-group-text" id="basic-addon2">seg</span>
             <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
           
@@ -25,20 +25,20 @@
           
           <div class="input-group mb-3">
             <span class="col-3 input-group-text" id="basic-addon1">Circuito</span>
-            <input type="text" class="form-control" placeholder="0.0" aria-label="Username" aria-describedby="basic-addon2">
+            <input type="text" name="timeCircuit" class="form-control" placeholder="0.0" aria-label="Username" aria-describedby="basic-addon2">
             <span class="col-3 input-group-text" id="basic-addon2">seg</span>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
           </div>
   
           <div class="input-group mb-3">
             <span class="col-3 text-center input-group-text" id="basic-addon1">Carrera</span>
-            <input type="text" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon3">
+            <input type="text" name="timeRaceMin" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon3">
             <span class="text-center input-group-text">:</span>
-            <input type="text" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon4">
+            <input type="text" name="timeRaceSec" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon4">
             <span class="col-3 text-center input-group-text" id="basic-addon2">min : seg</span>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Enviar todos los tiempos</button>
         </form>
 
         <table class="table table-light table-striped table-bordered border-secondary text-center">
@@ -54,25 +54,25 @@
           <tbody class="table-group-divider border-secondary">
           <tr>
             <th>Barra (seg)</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
+            <td>{{tests.barTime}}</td>
+            <td>{{tests.barInterval}}</td>
+            <td>{{tests.strBarGrade}}</td>
           </tr>
           <tr>
             <th>Circuito (seg)</th>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
+            <td>{{tests.circuitTime}}</td>
+            <td>{{tests.circuitInterval}}</td>
+            <td>{{tests.strCircuitGrade}}</td>
           </tr>
           <tr>
             <th>Carrera (min:seg)</th>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
+            <td>{{tests.strRaceTime}}</td>
+            <td>{{tests.raceInterval}}</td>
+            <td>{{tests.strRaceGrade}}</td>
           </tr>
           <tr>
             <th colspan="3">Total</th>
-            <td>10</td>
+            <td>{{tests.strTotalGrade}}</td>
           </tr>
         </tbody>
         </table>

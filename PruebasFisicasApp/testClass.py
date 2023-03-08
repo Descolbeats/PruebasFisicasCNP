@@ -30,19 +30,23 @@ class Tests():
         self.strBarGrade = "-"
         self.strCircuitGrade = "-"
         self.strRaceGrade = "-"
-        self.strTotalGrade30 = "-"
-        self.strTotalGrade10 = "-"
+        self.strTotalGrade = "-"
 
     def set_bar_time(self, time):
+        time = '0' if not time else time
         self.barTime = int(time)
     def set_circuit_time(self, time):
-        self.circuitTime = int(time)
+        time = '0' if not time else time
+        time = time.replace(",", "." )
+        self.circuitTime = float(time)
     def set_race_time(self, timeMin, timeSec):
+        timeMin = '0' if not timeMin else timeMin
+        timeSec = '0' if not timeSec else timeSec
         self.raceTime = int(timeMin) * 60 + int(timeSec)
         self.raceTimeMin = int(self.raceTime // 60)
         self.raceTimeSec = int(self.raceTime % 60)
         strRaceTimeMin = str(self.raceTimeMin)
-        strRaceTimeSec = str(self.raceTimeSec) if self.raceTimeSec>9 else "0" + str(self.raceTimeSec)
+        strRaceTimeSec = str(self.raceTimeSec) if self.raceTimeSec > 9 else "0" + str(self.raceTimeSec)
         self.strRaceTime = strRaceTimeMin + ":" + strRaceTimeSec
     def calc_all(self):
         self.calc_bar_grade()
