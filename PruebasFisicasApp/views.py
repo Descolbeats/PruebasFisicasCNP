@@ -15,3 +15,6 @@ def view_home(request):
         tests.set_race_time(request.POST['timeRaceMin'], request.POST['timeRaceSec'])
         tests.calc_all()
     return render(request, 'PruebasFisicasApp/home.html', {"tests":tests})
+
+def bootstrap(request):
+    return render(request, 'PruebasFisicasApp/bootstrap.html')

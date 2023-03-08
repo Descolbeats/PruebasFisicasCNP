@@ -57,7 +57,7 @@ class Tests():
         for i in range(len(Tests.arrBarTimes)):
             if self.barTime >= Tests.arrBarTimes[i]:
                 self.barGrade = i + 1
-        self.strBarGrade
+        self.strBarGrade = str(self.barGrade) + "/10"
     def calc_circuit_grade(self):
         self.circuitGrade = 0
         for i in range(len(Tests.arrCircuitTimes)):

@@ -1,7 +1,7 @@
 from django.urls import path
-from PruebasFisicasApp.views import view_home
+from PruebasFisicasApp import views
 
 urlpatterns = [
-    path('home/', view_home),
-    # path('buscar/', view_buscar),
+    path('home/', views.view_home),
+    path('bootstrap/', views.bootstrap),
 ]
