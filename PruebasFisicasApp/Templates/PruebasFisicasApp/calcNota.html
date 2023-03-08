@@ -33,7 +33,7 @@
           <div class="input-group mb-3">
             <span class="col-3 text-center input-group-text" id="basic-addon1">Carrera</span>
             <input type="text" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon3">
-            <span class="col-0 text-center input-group-text">:</span>
+            <span class="text-center input-group-text">:</span>
             <input type="text" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon4">
             <span class="col-3 text-center input-group-text" id="basic-addon2">min : seg</span>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
@@ -41,14 +41,17 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <table class="table table-dark table-striped caption-top">
-          <caption class = "text-center">Resultados</caption>
-          <tr>
-            <th scope="col">Prueba</th>
-            <th>Tiempo</th>
-            <th>Intervalo</th>
-            <th>Nota</th>
-          </tr>
+        <table class="table table-light table-striped table-bordered border-secondary text-center">
+          <caption class = "caption-top text-center">Resultados</caption>
+          <thead>
+            <tr>
+              <th class="col-5">Prueba</th>
+              <th class="col-2">Tiempo</th>
+              <th class="col-3">Intervalo</th>
+              <th class="col-2">Nota</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider border-secondary">
           <tr>
             <th>Barra (seg)</th>
             <td>1</td>
@@ -61,7 +64,19 @@
             <td>5</td>
             <td>6</td>
           </tr>
+          <tr>
+            <th>Carrera (min:seg)</th>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <th colspan="3">Total</th>
+            <td>10</td>
+          </tr>
+        </tbody>
         </table>
+
       </div>
     </div>
   </section>
