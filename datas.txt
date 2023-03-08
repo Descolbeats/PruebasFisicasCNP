@@ -7,6 +7,9 @@ To do:
     - Cambiar contenido tabla por strings para que esté vacía inicialmente
     - Poner bonito
 
+Bootstrap Spacing:
+https://getbootstrap.com/docs/4.5/utilities/spacing/
+
 Comandos terminal:
 
 Arrancar servidor:
