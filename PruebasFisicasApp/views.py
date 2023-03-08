@@ -5,7 +5,7 @@ from django.template.loader import get_template
 from django.shortcuts import render
 from  PruebasFisicasApp.testClass import Tests
 
-def view_home(request):    
+def calcNotaAntiguo(request):    
     if request.method != "POST":
         global tests
         tests = Tests()
@@ -14,13 +14,16 @@ def view_home(request):
         tests.set_circuit_time(request.POST['timeCircuit'])
         tests.set_race_time(request.POST['timeRaceMin'], request.POST['timeRaceSec'])
         tests.calc_all()
-    return render(request, 'PruebasFisicasApp/home.html', {"tests":tests})
+    return render(request, 'PruebasFisicasApp/calcNotaAntiguo.html', {"tests":tests})
 
-def bootstrap(request):
-    return render(request, 'PruebasFisicasApp/bootstrap.html')
+def bootstrapPildoras(request):
+    return render(request, 'PruebasFisicasApp/bootstrapPildoras.html')
+
+def calcNotaPildoras(request):
+    return render(request, 'PruebasFisicasApp/calcNotaPildoras.html')
+
+def home(request):
+    return render(request, 'PruebasFisicasApp/home.html')
 
 def calcNota(request):
     return render(request, 'PruebasFisicasApp/calcNota.html')
-
-def calcNota2(request):
-    return render(request, 'PruebasFisicasApp/calcNota2.html')

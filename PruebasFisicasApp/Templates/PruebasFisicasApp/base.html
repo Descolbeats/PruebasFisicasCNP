@@ -4,17 +4,12 @@
 
   {% load static %}
 
-    <!-- Bootstrap -->
-    <link href="{% static 'PruebasFisicasApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+  <!-- Styles -->
+  <link href="{% static 'PruebasFisicasApp/css/miCss.css' %}" rel="stylesheet">
 
-     <!-- Fonts -->
-    
-     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-     
-
-    <!-- Styles -->
-    <link href="{% static 'PruebasFisicasApp/css/gestion.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -24,36 +19,28 @@
         <span class="site-heading-lower">Gestión de Pedidos</span>
       </h1>
 
-
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="home.html">Gestión de Pedidos</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'CalculoNota' %}">Cálculo Nota</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'CalculoNota2' %}">Cálculo Nota 2</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="contacto.html">Contacto</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="blog.html">Blog</a>
-          </li>
-         
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">MENÚ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="{% url 'Home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Calculo Nota' %}">Cálculo notas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'calcNotaAntiguo' %}">Cálculo notas antiguo</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
     <!-- Contenido cambiante -->
     {% block content %}
@@ -92,9 +79,7 @@
       </div>
 	</footer>
 
-    <!-- Bootstrap -->
-    <script src="{% static 'PruebasFisicasApp/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'PruebasFisicasApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </body>
 

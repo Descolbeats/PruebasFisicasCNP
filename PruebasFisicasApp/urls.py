@@ -2,8 +2,9 @@ from django.urls import path
 from PruebasFisicasApp import views
 
 urlpatterns = [
-    path('home/', views.view_home, name="Home"),
-    path('bootstrap/', views.bootstrap),
-    path('calcNota/', views.calcNota, name="CalculoNota"),
-    path('calcNota2/', views.calcNota2, name="CalculoNota2"),
+    path('calcNotaAntiguo/', views.calcNotaAntiguo, name="calcNotaAntiguo"),
+    path('bootstrapPildoras/', views.bootstrapPildoras),
+    path('calcNotaPildoras/', views.calcNotaPildoras, name="CalculoNotaPildoras"),
+    path('home/', views.home, name="Home"),
+    path('calcNota/', views.calcNota, name="Calculo Nota"),
 ]
