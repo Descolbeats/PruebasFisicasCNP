@@ -18,3 +18,9 @@ def view_home(request):
 
 def bootstrap(request):
     return render(request, 'PruebasFisicasApp/bootstrap.html')
+
+def calcNota(request):
+    return render(request, 'PruebasFisicasApp/calcNota.html')
+
+def calcNota2(request):
+    return render(request, 'PruebasFisicasApp/calcNota2.html')
