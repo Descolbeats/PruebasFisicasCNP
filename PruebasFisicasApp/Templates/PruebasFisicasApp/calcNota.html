@@ -14,7 +14,7 @@
         <p class="mb-3">Texto.
         </p>
 
-        <form action="/calcNota/" method="POST"> {% csrf_token %}
+        <form action="/calcNota/" method="GET">
           <div class="input-group mb-3">
             <span class="col-3 input-group-text text-center" id="basic-addon1">Barra</span>
             <input type="text" name="timeBar" class="form-control" placeholder="0">
@@ -41,7 +41,7 @@
           <button type="submit" class="btn btn-primary">Enviar todos los tiempos</button>
         </form>
 
-        <table class="table table-light table-striped table-bordered border-secondary text-center">
+        <table class="table table-light table-striped table-bordered border-secondary text-center align-middle">
           <caption class = "caption-top text-center">Resultados</caption>
           <thead>
             <tr>

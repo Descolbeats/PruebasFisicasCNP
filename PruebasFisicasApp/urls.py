@@ -7,4 +7,6 @@ urlpatterns = [
     path('calcNotaPildoras/', views.calcNotaPildoras, name="CalculoNotaPildoras"),
     path('home/', views.home, name="Home"),
     path('calcNota/', views.calcNota, name="Calculo Nota"),
+    path('pruebas/', views.pruebas),
+    path('redirect/', views.redirect),
 ]
