@@ -6,7 +6,9 @@ To do:
     - .gitignore
     - Cambiar contenido tabla por strings para que esté vacía inicialmente
     - Poner bonito
-    - Límite de ancho a containers y demás.
+    - Límite de ancho a containers, tablas, imágenes...
+    - Cambiar imágenees tablas por tablas. Si no, 3 imgs mismo tamaño siempre
+
 
 Bootstrap Spacing:
 https://getbootstrap.com/docs/4.5/utilities/spacing/
