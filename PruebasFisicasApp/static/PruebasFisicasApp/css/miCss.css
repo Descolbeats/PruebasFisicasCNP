@@ -1,6 +1,6 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg_main.jpg");
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg_main2.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -27,5 +27,5 @@ p {
 }
 
 .footer {
-  background-color: rgba(24, 64, 8, 0.8);
+  background-color: rgba(255, 0, 0, 0.8);
 }

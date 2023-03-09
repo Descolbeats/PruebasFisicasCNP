@@ -27,7 +27,7 @@ def home(request):
     return render(request, 'PruebasFisicasApp/home.html')
 
 def calcNota(request):
-    if not request.GET:
+    if not request.GET or ('calcButton' in request.GET and request.GET['calcButton'] == 'reset'):
         global tests
         tests = Tests()
         return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
@@ -36,14 +36,17 @@ def calcNota(request):
             tests.set_bar_time(request.GET['timeBar'])
             tests.calc_bar_grade()
             tests.calc_bar_interval()
+            tests.calc_total_grade()
         if request.GET['calcButton'] == 'circuit' or request.GET['calcButton'] == 'all':
             tests.set_circuit_time(request.GET['timeCircuit'])
             tests.calc_circuit_grade()
             tests.calc_circuit_interval()
+            tests.calc_total_grade()
         if request.GET['calcButton'] == 'race' or request.GET['calcButton'] == 'all':
             tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
             tests.calc_race_grade()
             tests.calc_race_interval()
+            tests.calc_total_grade()
         """ elif request.GET['calcButton'] == 'all':
             tests.set_bar_time(request.GET['timeBar'])
             tests.set_circuit_time(request.GET['timeCircuit'])
@@ -51,7 +54,7 @@ def calcNota(request):
             tests.calc_all() """
         return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
     else:
-        print('aaa')
+        return HttpResponse("Error: existe request.GET pero no request.GET['calcButton']")
 
 
 def pruebas(request):

@@ -75,10 +75,18 @@ class Tests():
                 self.raceGrade = i + 1
         self.strRaceGrade = str(self.raceGrade) + "/10"
     def calc_total_grade(self):
-        self.totalGrade30 = self.barGrade + self.circuitGrade + self.raceGrade
+        self.totalGrade30 = 0
+        if self.barGrade != "-":
+            self.totalGrade30 += self.barGrade
+        if self.circuitGrade != "-":
+            self.totalGrade30 += self.circuitGrade
+        if self.raceGrade != "-":
+            self.totalGrade30 += self.raceGrade
         self.totalGrade10 = int(self.totalGrade30/3) if self.totalGrade30%3 == 0 else round(self.totalGrade30/3, 1)
         self.strTotalGrade = str(self.totalGrade30) + "/30 (" + str(self.totalGrade10) + "/10)"
-    
+
+
+
     def calc_bar_interval(self):
         if not self.barGrade:
             self.barInterval = f"[0 - {Tests.arrBarTimes[0]-1}]"

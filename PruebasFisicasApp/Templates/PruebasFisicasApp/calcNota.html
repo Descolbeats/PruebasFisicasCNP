@@ -37,7 +37,7 @@
             <span class="col-3 text-center input-group-text" id="basic-addon2">min : seg</span>
             <button type="submit" class="btn btn-outline-secondary" name = "calcButton" value = "race">Calcular</button>
           </div>
-          <button type="submit" class="btn btn-secondary" name = "calcButton" value = "all">Enviar todos los tiempos</button>
+          <button type="submit" class="btn btn-secondary" name = "calcButton" value = "all">Calcular las notas de las 3 pruebas</button>
         </form>
 
         <table class="table table-light table-striped table-bordered border-secondary text-center align-middle">
@@ -45,9 +45,9 @@
           <thead>
             <tr>
               <th class="col-5">Prueba</th>
-              <th class="col-2">Tiempo</th>
+              <th class="col-1">Tiempo</th>
               <th class="col-3">Intervalo</th>
-              <th class="col-2">Nota</th>
+              <th class="col-3">Nota</th>
             </tr>
           </thead>
           <tbody class="table-group-divider border-secondary">
@@ -75,6 +75,10 @@
           </tr>
         </tbody>
         </table>
+
+        <form method="GET">
+        <button type="submit" class="btn btn-secondary" name = "calcButton" value = "reset">Reiniciar resultados</button>
+        </form>
 
       </div>
     </div>
