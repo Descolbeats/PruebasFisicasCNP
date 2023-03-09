@@ -6,9 +6,7 @@ To do:
     - .gitignore
     - Cambiar contenido tabla por strings para que esté vacía inicialmente
     - Poner bonito
-    - Arreglar actualización página (POST/GET/REFRESH)
     - Límite de ancho a containers y demás.
-    - Circuito no mostrar décimas si no hace falta (mostrar 4 y no 4.0)
 
 Bootstrap Spacing:
 https://getbootstrap.com/docs/4.5/utilities/spacing/

@@ -38,7 +38,7 @@ class Tests():
     def set_circuit_time(self, time):
         time = '0' if not time else time
         time = time.replace(",", "." )
-        self.circuitTime = float(time)
+        self.circuitTime = int(time) if float(time).is_integer() else float(time)
     def set_race_time(self, timeMin, timeSec):
         timeMin = '0' if not timeMin else timeMin
         timeSec = '0' if not timeSec else timeSec
@@ -67,7 +67,7 @@ class Tests():
         for i in range(len(Tests.arrCircuitTimes)):
             if self.circuitTime <= Tests.arrCircuitTimes[i]:
                 self.circuitGrade = i + 1
-        self.strCircuitGrade = str(self.circuitGrade) + "/10"
+        self.strCircuitGrade = str(self.circuitGrade) + "/10"    
     def calc_race_grade(self):
         self.raceGrade = 0
         for i in range(len(Tests.arrRaceTimes)):
