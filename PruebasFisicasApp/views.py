@@ -30,12 +30,29 @@ def calcNota(request):
     if not request.GET:
         global tests
         tests = Tests()
+        return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
+    elif 'calcButton' in request.GET:
+        if request.GET['calcButton'] == 'bar' or request.GET['calcButton'] == 'all':
+            tests.set_bar_time(request.GET['timeBar'])
+            tests.calc_bar_grade()
+            tests.calc_bar_interval()
+        if request.GET['calcButton'] == 'circuit' or request.GET['calcButton'] == 'all':
+            tests.set_circuit_time(request.GET['timeCircuit'])
+            tests.calc_circuit_grade()
+            tests.calc_circuit_interval()
+        if request.GET['calcButton'] == 'race' or request.GET['calcButton'] == 'all':
+            tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
+            tests.calc_race_grade()
+            tests.calc_race_interval()
+        """ elif request.GET['calcButton'] == 'all':
+            tests.set_bar_time(request.GET['timeBar'])
+            tests.set_circuit_time(request.GET['timeCircuit'])
+            tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
+            tests.calc_all() """
+        return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
     else:
-        tests.set_bar_time(request.GET['timeBar'])
-        tests.set_circuit_time(request.GET['timeCircuit'])
-        tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
-        tests.calc_all()
-    return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
+        print('aaa')
+
 
 def pruebas(request):
     texto = "AAA"

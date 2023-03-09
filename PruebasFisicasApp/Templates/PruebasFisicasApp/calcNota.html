@@ -14,20 +14,19 @@
         <p class="mb-3">Texto.
         </p>
 
-        <form action="/calcNota/" method="GET">
+        <form method="GET">
           <div class="input-group mb-3">
-            <span class="col-3 input-group-text text-center" id="basic-addon1">Barra</span>
+            <span class="col-3 input-group-text text-center">Barra</span>
             <input type="text" name="timeBar" class="form-control" placeholder="0">
-            <span class="col-3 input-group-text" id="basic-addon2">seg</span>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
-          
+            <span class="col-3 input-group-text">seg</span>
+            <button type="submit" class="btn btn-outline-secondary" name = "calcButton" value = "bar">Calcular</button>
           </div>
           
           <div class="input-group mb-3">
             <span class="col-3 input-group-text" id="basic-addon1">Circuito</span>
             <input type="text" name="timeCircuit" class="form-control" placeholder="0.0" aria-label="Username" aria-describedby="basic-addon2">
             <span class="col-3 input-group-text" id="basic-addon2">seg</span>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+            <button type="submit" class="btn btn-outline-secondary" name = "calcButton" value = "circuit">Calcular</button>
           </div>
   
           <div class="input-group mb-3">
@@ -36,9 +35,9 @@
             <span class="text-center input-group-text">:</span>
             <input type="text" name="timeRaceSec" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon4">
             <span class="col-3 text-center input-group-text" id="basic-addon2">min : seg</span>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+            <button type="submit" class="btn btn-outline-secondary" name = "calcButton" value = "race">Calcular</button>
           </div>
-          <button type="submit" class="btn btn-primary">Enviar todos los tiempos</button>
+          <button type="submit" class="btn btn-secondary" name = "calcButton" value = "all">Enviar todos los tiempos</button>
         </form>
 
         <table class="table table-light table-striped table-bordered border-secondary text-center align-middle">
