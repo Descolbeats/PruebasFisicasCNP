@@ -24,13 +24,13 @@ def calcNotaPildoras(request):
     return render(request, 'PruebasFisicasApp/calcNotaPildoras.html')
 
 def home(request):
-    return render(request, 'PruebasFisicasApp/home.html')
+    return render(request, 'PruebasFisicasApp/home.html', {'nbar': 'home'})
 
 def calcNota(request):
     if not request.GET or ('calcButton' in request.GET and request.GET['calcButton'] == 'reset'):
         global tests
         tests = Tests()
-        return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
+        return render(request, 'PruebasFisicasApp/calcNota.html', {'nbar': 'calcNotas', "tests":tests})
     elif 'calcButton' in request.GET:
         if request.GET['calcButton'] == 'bar' or request.GET['calcButton'] == 'all':
             tests.set_bar_time(request.GET['timeBar'])
@@ -52,7 +52,7 @@ def calcNota(request):
             tests.set_circuit_time(request.GET['timeCircuit'])
             tests.set_race_time(request.GET['timeRaceMin'], request.GET['timeRaceSec'])
             tests.calc_all() """
-        return render(request, 'PruebasFisicasApp/calcNota.html', {"tests":tests})
+        return render(request, 'PruebasFisicasApp/calcNota.html', {'nbar': 'calcNotas', "tests":tests})
     else:
         return HttpResponse("Error: existe request.GET pero no request.GET['calcButton']")
 
