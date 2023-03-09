@@ -16,6 +16,10 @@ p {
   margin-bottom: 2rem;
 }
 
+.site-heading{
+  text-transform: uppercase;
+}
+
 .section-heading {
   text-transform: uppercase;
   display: block;
@@ -26,6 +30,23 @@ p {
 .bg-faded {
   background-color: rgba(255, 255, 255, 0.85);
 }
+
+#mainNav {
+  background-color: rgba(24, 64, 8);
+  font-family: 'Raleway';
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  font-weight: 1000;
+}
+
+/* .nav-item .active{
+  font-weight: bold;
+  text-decoration: underline;
+}
+ */
+
 
 .footer {
   background-color: rgba(255, 255, 255, 0.8);
