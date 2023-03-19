@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from PruebasFisicasCNP import views
+from django.urls import path
+from PruebasFisicasCNP import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', views.home, name="Home"),
+    path('calcNota/', views.calcNota, name="Calculo Nota"),
     path('home/', views.home, name="Home"),
     path('calcNota/', views.calcNota, name="Calculo Nota"),
 ]
