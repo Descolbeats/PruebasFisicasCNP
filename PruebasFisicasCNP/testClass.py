@@ -1,3 +1,16 @@
+""" # A function to check if a digit string using a negative number
+def is_negative_digit(a_string):
+    if a_string[0] == '-':
+        return a_string[1:].isdigit()
+
+print(is_negative_digit('-123.3'))
+print(is_negative_digit('-123'))
+
+# Returns:
+# False
+# True
+ """
+
 class Tests():
     arrBarTimes = [36, 41, 46, 52, 57, 63, 70, 78, 86, 95]
     arrCircuitTimes = [12.7, 12.5, 12.3, 12, 11.6, 11.2, 10.8, 10.3, 9.8, 9.3]
@@ -33,10 +46,10 @@ class Tests():
         self.strTotalGrade = "-"
 
     def set_bar_time(self, time):
-        time = '0' if not time else time
+        time = '0' if not time or not time.isdecimal() else time
         self.barTime = int(time)
     def set_circuit_time(self, time):
-        time = '0' if not time else time
+        time = '0' if not time or not isinstance(time, float) else time
         time = time.replace(",", "." )
         self.circuitTime = int(time) if float(time).is_integer() else float(time)
     def set_race_time(self, timeMin, timeSec):
