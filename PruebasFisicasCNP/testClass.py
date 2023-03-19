@@ -1,15 +1,9 @@
-""" # A function to check if a digit string using a negative number
-def is_negative_digit(a_string):
-    if a_string[0] == '-':
-        return a_string[1:].isdigit()
-
-print(is_negative_digit('-123.3'))
-print(is_negative_digit('-123'))
-
-# Returns:
-# False
-# True
- """
+def isFloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
 
 class Tests():
     arrBarTimes = [36, 41, 46, 52, 57, 63, 70, 78, 86, 95]
@@ -46,16 +40,19 @@ class Tests():
         self.strTotalGrade = "-"
 
     def set_bar_time(self, time):
-        time = '0' if not time or not time.isdecimal() else time
-        self.barTime = int(time)
-    def set_circuit_time(self, time):
-        time = '0' if not time or not isinstance(time, float) else time
         time = time.replace(",", "." )
+        time = '0' if not time or not isFloat(time) else time
+        self.barTime = int(float(time))
+    def set_circuit_time(self, time):
+        time = time.replace(",", "." )
+        time = '0' if not time or not isFloat(time) else time
         self.circuitTime = int(time) if float(time).is_integer() else float(time)
     def set_race_time(self, timeMin, timeSec):
-        timeMin = '0' if not timeMin else timeMin
-        timeSec = '0' if not timeSec else timeSec
-        self.raceTime = int(timeMin) * 60 + int(timeSec)
+        timeMin = timeMin.replace(",", "." )
+        timeSec = timeSec.replace(",", "." )
+        timeMin = '0' if not timeMin or not isFloat(timeMin) else timeMin
+        timeSec = '0' if not timeSec or not isFloat(timeSec) else timeSec
+        self.raceTime = int(float(timeMin)) * 60 + int(float(timeSec))
         self.raceTimeMin = int(self.raceTime // 60)
         self.raceTimeSec = int(self.raceTime % 60)
         strRaceTimeMin = str(self.raceTimeMin)
